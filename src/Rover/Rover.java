@@ -7,7 +7,7 @@ public class Rover {
     private int x;
     private int y;
     private String direction;
-    private String commands;
+    private final String commands;
 
     private final List<String> acwDirections = Arrays.asList("N", "W", "S", "E");
     private final List<String> cwDirections = Arrays.asList("N", "E", "S", "W");
