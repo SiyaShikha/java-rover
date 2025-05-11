@@ -7,13 +7,16 @@ public class Rover {
     private int x;
     private int y;
     private String direction;
+    private String commands;
+
     private final List<String> acwDirections = Arrays.asList("N", "W", "S", "E");
     private final List<String> cwDirections = Arrays.asList("N", "E", "S", "W");
 
-    public Rover(int x, int y, String direction) {
+    public Rover(int x, int y, String direction, String commands) {
         this.x = x;
         this.y = y;
         this.direction = direction;
+        this.commands = commands;
     }
 
     public String turnLeft() {
@@ -49,8 +52,8 @@ public class Rover {
         return Arrays.asList(this.x, this.y);
     }
 
-    public List<Object> execute(String commandString) {
-        for (char commandChar : commandString.toCharArray()) {
+    public List<Object> execute() {
+        for (char commandChar : this.commands.toCharArray()) {
             String command = String.valueOf(commandChar);
             try {
                 Movements.valueOf(command).move(this);

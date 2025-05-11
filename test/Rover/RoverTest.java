@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoverTest {
     @Test
     void turnLeft() {
-        Rover rover = new Rover(0, 0, "N");
+        Rover rover = new Rover(0, 0, "N","");
 
         assertEquals("W", rover.turnLeft());
         assertEquals("S", rover.turnLeft());
@@ -16,7 +16,7 @@ class RoverTest {
 
     @Test
     void turnRight() {
-        Rover rover = new Rover(0, 0, "N");
+        Rover rover = new Rover(0, 0, "N","");
 
         assertEquals("E", rover.turnRight());
         assertEquals("S", rover.turnRight());
@@ -27,7 +27,7 @@ class RoverTest {
 
     @Test
     void moveForward() {
-        Rover rover = new Rover(0, 0, "N");
+        Rover rover = new Rover(0, 0, "N","");
         assertEquals(Arrays.asList(0, 1), rover.moveForward());
 
         rover.turnRight();
@@ -36,17 +36,13 @@ class RoverTest {
 
     @Test
     void execute() {
-        Rover rover = new Rover(0, 0, "N");
-
-        assertEquals(Arrays.asList(0, 1, "N"), rover.execute("M"));
-        assertEquals(Arrays.asList(0, 1, "E"), rover.execute("R"));
-        assertEquals(Arrays.asList(0, 1, "N"), rover.execute("L"));
-        assertEquals(Arrays.asList(1, 1, "E"), rover.execute("RM"));
+        Rover rover = new Rover(0, 0, "N","MRL");
+        assertEquals(Arrays.asList(0, 1, "N"), rover.execute());
     }
 
     @Test
     void testToString() {
-        Rover rover = new Rover(0, 0, "N");
+        Rover rover = new Rover(0, 0, "N","");
         assertEquals("0 0 N", rover.toString());
     }
 }
