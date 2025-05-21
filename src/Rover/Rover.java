@@ -54,8 +54,8 @@ public class Rover {
 
     public List<Object> execute() {
         for (char commandChar : this.commands.toCharArray()) {
-            String command = String.valueOf(commandChar);
             try {
+                String command = String.valueOf(commandChar);
                 Movements.valueOf(command).move(this);
             } catch (Exception e) {
                 throw new RuntimeException(e);
